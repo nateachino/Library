@@ -1,23 +1,22 @@
 let myLibrary = [];
+let num = -1;
 
 const button = document.querySelector("button");
-const table = document.querySelector("table");
 const bookTitle = document.getElementById("book-title");
 const bookAuthor = document.getElementById("book-author");
 const pageNumber = document.getElementById("book-pages");
+
+
 
 button.addEventListener("click", () => {
   if (
     bookTitle.value == " " ||
     bookAuthor.value == " " ||
-    pageNumber.value == ""
+    pageNumber.value == "" || pageNumber.value == 0
   ) {
-    console.log("invalid input");
-    console.log(bookTitle);
+    
   } else {
     addBookToLibrary();
-    console.log(bookTitle);
-    console.log("valid input");
   }
 });
 
@@ -29,7 +28,36 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-  const book = new Book(bookTitle.value, bookAuthor.value, pageNumber.value);
+
+  const title = bookTitle.value;
+  const author = bookAuthor.value;
+  const page = pageNumber.value;
+  const book = new Book(title, author, page);
+
   myLibrary.push(book);
-  console.log(myLibrary);
+
+  num+=1;
+
+  addBooktoTable(num)
+}
+
+
+addBookToLibrary.prototype
+
+
+function addBooktoTable(number){
+  const table = document.querySelector("table");
+
+      const titleDoc = document.createElement("td")
+      const authorDoc = document.createElement("td")
+      const pageDoc = document.createElement("td")
+
+      titleDoc.innerHTML = myLibrary[number].title
+      authorDoc.innerHTML = myLibrary[number].author
+      pageDoc.innerHTML = myLibrary[number].pages
+
+
+      var row = table.insertRow();
+      row.append(titleDoc,authorDoc,pageDoc)
+
 }
