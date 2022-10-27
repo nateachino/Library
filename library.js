@@ -83,6 +83,10 @@ function addBooktoTable(num) {
     removeBookFromTable(num);
     row.remove();
   });
+
+  readButton.addEventListener("click", () => {
+    row.style.backgroundColor = "green";
+  });
 }
 
 function removeBookFromTable(numb) {
