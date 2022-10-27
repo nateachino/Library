@@ -8,11 +8,23 @@ const pageNumber = document.getElementById("book-pages");
 
 button.addEventListener("click", () => {
   if (
-    bookTitle.value == " " ||
-    bookAuthor.value == " " ||
+    bookTitle.value == "" ||
+    bookAuthor.value == "" ||
     pageNumber.value == "" ||
     pageNumber.value == 0
   ) {
+    if (bookTitle.value == "") {
+      bookTitle.style.transition = "border ";
+      bookTitle.style.border = "red solid 1px";
+    }
+
+    if (bookAuthor.value == "") {
+      bookAuthor.style.border = "red solid 1px";
+    }
+
+    if (pageNumber.value == "" || pageNumber.value == 0) {
+      pageNumber.style.border = "red solid 1px";
+    }
   } else {
     addBookToLibrary();
   }
@@ -42,7 +54,6 @@ function addBookToLibrary() {
 addBookToLibrary.prototype;
 
 function addBooktoTable(num) {
-  console.log("ndaa" + num);
   const table = document.querySelector("table");
 
   const titleDoc = document.createElement("td");
@@ -70,16 +81,14 @@ function addBooktoTable(num) {
 
   removeButton.addEventListener("click", () => {
     removeBookFromTable(num);
-    removeButton.parentElement.parentElement.remove();
+    row.remove();
   });
 }
 
 function removeBookFromTable(numb) {
-  console.log(numb);
   for (i = 0; i < myLibrary.length; i++) {
     if (myLibrary[i].number == numb) {
-      console.log(i);
-      myLibrary.splice(numb, 1);
+      myLibrary.splice(i, 1);
     }
   }
 }
