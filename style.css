@@ -4,28 +4,44 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.label-row {
-  display: flex;
+table {
+  width: 50vw;
+  margin: auto;
+  background-color: #64748b;
 }
 
-.popup {
-  background-color: #d1d5db;
+td,
+th {
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+thead {
+  border-bottom: black 2px solid;
+}
+
+header {
+  padding: 20px;
+}
+
+.top-head {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
-  width: 400px;
-  height: 400px;
-  border-radius: 10px;
+  justify-content: flex-start;
+  font-size: 32px;
+  font-weight: bold;
 }
 
 form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
 .popup-container {
@@ -33,11 +49,20 @@ form {
   flex-direction: column;
 }
 
+.popup {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 20px;
+  border-bottom: black 2px solid;
+}
+
 input {
   width: 300px;
   height: 30px;
   border: 0;
   border-radius: 5px;
+  background-color: #e5e7eb;
 }
 
 button {
@@ -48,6 +73,17 @@ button {
   background-color: #e5e7eb;
 }
 
-button:hover {
-  border: 0.5px #bae6fd solid;
+.button-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+th {
+  padding: 20px;
+}
+
+th:not(:last-child),
+td:not(:last-child) {
+  border-right: 2px black solid;
 }

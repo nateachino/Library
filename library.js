@@ -54,7 +54,7 @@ function addBookToLibrary() {
 addBookToLibrary.prototype;
 
 function addBooktoTable(num) {
-  const table = document.querySelector("table");
+  const table = document.querySelector("tbody");
 
   const titleDoc = document.createElement("td");
   const authorDoc = document.createElement("td");

@@ -16,53 +16,57 @@
     />
   </head>
   <body>
-    <div class="top-head">Library</div>
-    <table class="table">
-      <tr class="label-row">
-        <th>Book Title</th>
-        <th>Author</th>
-        <th>Number of Pages</th>
-        <th>Read?</th>
-        <th>Remove Book</th>
-      </tr>
-    </table>
+    <header>
+      <div class="top-head">Simple Library App</div>
+    </header>
 
-    <div class="popup">
-      <form>
-        <div class="popup-container">
-          <label>Book Title</label>
-          <input
-            type="text"
-            id="book-title"
-            class="book-input"
-            placeholder="Book Title"
-            minlength="1"
-          />
-        </div>
+    <div class="container">
+      <div class="popup">
+        <form>
+          <div class="popup-container">
+            <label>Book Title</label>
+            <input
+              type="text"
+              id="book-title"
+              class="book-input"
+              placeholder="Book Title"
+              minlength="1"
+            />
+          </div>
+          <div class="popup-container">
+            <label>Author's Name</label>
+            <input
+              type="text"
+              id="book-author"
+              class="book-input"
+              placeholder="Author's Name"
+              minlength="1"
+            />
+          </div>
+          <div class="popup-container">
+            <label>Amount of Pages</label>
+            <input
+              type="number"
+              id="book-pages"
+              class="book-input"
+              placeholder="Page Amount"
+              minlength="1"
+            />
+          </div>
+        </form>
+        <div class="button-div"><button id="new-book">Add Book</button></div>
+      </div>
 
-        <div class="popup-container">
-          <label>Author's Name</label>
-          <input
-            type="text"
-            id="book-author"
-            class="book-input"
-            placeholder="Author's Name"
-            minlength="1"
-          />
-        </div>
-
-        <div class="popup-container">
-          <label>Amount of Pages</label>
-          <input
-            type="number"
-            id="book-pages"
-            class="book-input"
-            placeholder="Page Amount"
-            minlength="1"
-          />
-        </div>
-      </form>
-      <div><button id="new-book">Add Book</button></div>
+      <table class="table" >
+            <thead class="label-row">
+              <th>Book Title</th>
+              <th>Author</th>
+              <th>Number of Pages</th>
+              <th>Read?</th>
+              <th>Remove Book</th>
+            </thead>
+        <tbody></tbody>
+      </table>
+        </body>
     </div>
-  </body>
 </html>
