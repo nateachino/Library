@@ -1,4 +1,5 @@
 let myLibrary = [];
+var number = 0;
 
 const button = document.querySelector("button");
 const bookTitle = document.getElementById("book-title");
@@ -30,14 +31,18 @@ function addBookToLibrary() {
   const page = pageNumber.value;
   const book = new Book(title, author, page);
 
+  book.number = number;
+  number += 1;
+
   myLibrary.push(book);
 
-  addBooktoTable();
+  addBooktoTable(book.number);
 }
 
 addBookToLibrary.prototype;
 
-function addBooktoTable() {
+function addBooktoTable(num) {
+  console.log("ndaa" + num);
   const table = document.querySelector("table");
 
   const titleDoc = document.createElement("td");
@@ -61,8 +66,6 @@ function addBooktoTable() {
   removeButtonTd.appendChild(removeButton);
 
   var row = table.insertRow();
-  let num = myLibrary.length - 1;
-  myLibrary[myLibrary.length - 1].number = num;
   row.append(titleDoc, authorDoc, pageDoc, readButtonTd, removeButtonTd);
 
   removeButton.addEventListener("click", () => {
@@ -75,6 +78,7 @@ function removeBookFromTable(numb) {
   console.log(numb);
   for (i = 0; i < myLibrary.length; i++) {
     if (myLibrary[i].number == numb) {
+      console.log(i);
       myLibrary.splice(numb, 1);
     }
   }
