@@ -1,20 +1,17 @@
 let myLibrary = [];
-let num = -1;
 
 const button = document.querySelector("button");
 const bookTitle = document.getElementById("book-title");
 const bookAuthor = document.getElementById("book-author");
 const pageNumber = document.getElementById("book-pages");
 
-
-
 button.addEventListener("click", () => {
   if (
     bookTitle.value == " " ||
     bookAuthor.value == " " ||
-    pageNumber.value == "" || pageNumber.value == 0
+    pageNumber.value == "" ||
+    pageNumber.value == 0
   ) {
-    
   } else {
     addBookToLibrary();
   }
@@ -28,7 +25,6 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-
   const title = bookTitle.value;
   const author = bookAuthor.value;
   const page = pageNumber.value;
@@ -36,28 +32,50 @@ function addBookToLibrary() {
 
   myLibrary.push(book);
 
-  num+=1;
-
-  addBooktoTable(num)
+  addBooktoTable();
 }
 
+addBookToLibrary.prototype;
 
-addBookToLibrary.prototype
-
-
-function addBooktoTable(number){
+function addBooktoTable() {
   const table = document.querySelector("table");
 
-      const titleDoc = document.createElement("td")
-      const authorDoc = document.createElement("td")
-      const pageDoc = document.createElement("td")
+  const titleDoc = document.createElement("td");
+  const authorDoc = document.createElement("td");
+  const pageDoc = document.createElement("td");
 
-      titleDoc.innerHTML = myLibrary[number].title
-      authorDoc.innerHTML = myLibrary[number].author
-      pageDoc.innerHTML = myLibrary[number].pages
+  const readButtonTd = document.createElement("td");
+  const readButton = document.createElement("button");
 
+  const removeButtonTd = document.createElement("td");
+  const removeButton = document.createElement("button");
 
-      var row = table.insertRow();
-      row.append(titleDoc,authorDoc,pageDoc)
+  titleDoc.innerHTML = myLibrary[myLibrary.length - 1].title;
+  authorDoc.innerHTML = myLibrary[myLibrary.length - 1].author;
+  pageDoc.innerHTML = myLibrary[myLibrary.length - 1].pages;
 
+  readButton.innerHTML = "Read";
+  removeButton.innerHTML = "Remove";
+
+  readButtonTd.appendChild(readButton);
+  removeButtonTd.appendChild(removeButton);
+
+  var row = table.insertRow();
+  let num = myLibrary.length - 1;
+  myLibrary[myLibrary.length - 1].number = num;
+  row.append(titleDoc, authorDoc, pageDoc, readButtonTd, removeButtonTd);
+
+  removeButton.addEventListener("click", () => {
+    removeBookFromTable(num);
+    removeButton.parentElement.parentElement.remove();
+  });
+}
+
+function removeBookFromTable(numb) {
+  console.log(numb);
+  for (i = 0; i < myLibrary.length; i++) {
+    if (myLibrary[i].number == numb) {
+      myLibrary.splice(numb, 1);
+    }
+  }
 }
